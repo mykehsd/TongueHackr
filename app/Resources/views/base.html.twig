@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% stylesheets filter='less,cssrewrite,?yui_css' 
+           '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
+           '@THConnectBundle/Resources/public/less/base.less'
+        %}
+              <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% render "THConnectBundle:Default:topbar" %}
+
+        {% if app.session.hasFlash('notice') %}
+         <div class="alert-message sucess">
+            <a class="close" href="#">x</a>
+            <p>{{ app.session.flash('notice') }}</p>
+        </div>
+        {% endif %}
+
+        {% block layout_cols %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+        {% javascripts
+            '@THConnectBundle/Resources/public/js/*'
+            '@MopaBootstrapBundle/Resources/bootstrap/js/*'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    </body>
+</html>

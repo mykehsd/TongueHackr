@@ -1,0 +1,24 @@
+{% extends '::nocol.html.twig' %}
+
+{% block body %}
+<br/>
+<h1>Welcome to TongueHackr <small>your crowd sourced language learning tool</small></h1>
+<img src="http://awe.comm.gocolumbia.edu/basis_skills_handbook/students_learning.jpg" />
+
+{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+{{ facebook_login_button({'autologoutlink': true}) }}
+
+<script>
+  function goLogIn(){
+      window.location = "{{ path('_security_check') }}";
+  }
+
+  function onFbInit() {
+      if (typeof(FB) != 'undefined' && FB != null ) {
+          FB.Event.subscribe('auth.statusChange', function(response) {
+              setTimeout(goLogIn, 500);
+          });
+      }
+  }
+</script>
+{% endblock %}

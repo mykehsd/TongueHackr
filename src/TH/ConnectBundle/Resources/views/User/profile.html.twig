@@ -1,0 +1,34 @@
+{% extends '::nocol.html.twig' %}
+
+{% block body %}
+    <p>Here is the latest content:</p>
+
+    {% for item in streams %}
+        <a href="{{ path('THConnectBundle_item', { 'slug': item.id }) }}">
+            {% if item.icon %}
+                <img src="{{ item.icon }}" /> 
+            {% else %}
+                <strong>{{ item.type }}</strong> 
+
+            {% endif %}
+        {{ item.message }} <br/>
+        </a>
+    {% endfor %}
+
+
+    {% if not app.user.learninglanguage  %}
+        <div id="language-modal" class="modal hide fade" style="display: none">
+            <div class="modal-header">
+                <h3>Your profile settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>Please provide information for your profile</p>
+                <form action="{{ path('THConnectBundle_profileUpdate') }}" method="post" {{ form_enctype(form) }}>
+                    {{ form_widget(form) }}
+                    <input class="btn primary" type="submit" />
+                </form>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock %}

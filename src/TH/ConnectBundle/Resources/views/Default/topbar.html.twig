@@ -1,0 +1,47 @@
+<div class="topbar-wrapper" style="z-index: 5;">
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="topbar-inner">
+            <div class="container">
+                <h3><a href="{{ path('THConnectBundle_homepage') }}">Tongue Hackr</a></h3>
+                <ul class="nav">
+                    <li class="active"><a href="{{ path('THConnectBundle_homepage') }}">Home</a></li>
+                    <li><a href="{{ path('THConnectBundle_profile') }}">Browse</a></li>
+                    <li><a href="{{ path('THConnectBundle_friends') }}">Friends</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Interests</a>
+                        <ul class="dropdown-menu">
+                        {% for interest in interests %}
+                            <li><a href="#">{{ interest.name }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+                <form class="pull-left" action="">
+                    <input type="text" placeholder="Search Tongue Hackr">
+                </form>
+                <ul class="nav secondary-nav">
+                    {% if is_granted('LOGGED_IN') %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Your Account</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Preferences</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Invite Friends</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                        {% if not app.user %}
+                            <li><a href="/">Login</a></li>
+                        {% else %}
+                            <li><a href="{{ path('_security_logout') }}">Logout</a></li>
+                        {% endif %}
+                    {% endif %}
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+        </div><!-- /topbar-inner -->
+    </div><!-- /topbar -->
+</div>
+

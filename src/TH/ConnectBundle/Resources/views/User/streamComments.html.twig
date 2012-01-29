@@ -1,0 +1,18 @@
+    <div class="page-header">
+        <h3>Join the conversation</h3>
+    </div>
+    <dl>
+    {% for comment in stream.comments %}
+        <dt>{{ comment.user.firstname }}</dt>
+        <dd>{{ comment.body }}</dd>
+    {% endfor %}
+    </dl>
+
+    <form action="{{ path('THConnectBundle_streamCommentsNew') }}" method="post" >
+        <input type="hidden" name="id" value="{{ stream.id }}" />
+        <textarea name="comment"></textarea>
+
+        <div class="well">
+            <input type="submit" class="btn primary" value="Submit" />
+        </div>
+    </form>

@@ -1,0 +1,22 @@
+{% extends '::leftcol.html.twig' %}
+
+{% block body %}
+    {% if stream.isYouTube %}
+        <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/{{ stream.youtubeId }}" frameborder="0">
+        </iframe>
+    {% else %}
+        <iframe height="90%" width="800" src="{{ stream.link }}"></iframe>
+    {% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+    <div class="well">
+        <h1><small>Rate it</small></h1>
+        <a href="{{ path('THConnectBundle_like', { slug: stream.id }) }}" class="btn sucess">Like it</a>
+        <button class="btn danger">Hate it</button>
+    </div>
+
+    {% render "THConnectBundle:User:streamComments" with { 'slug' : stream.id } %}
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends '::nocol.html.twig' %}
+
+{% block body %}
+    <h2>TongueHackr Users</h2>
+
+    <ul class="media-grid">
+    {% for user in users %}
+        <li>
+        <div class="friends">
+            <div class="photo">
+                <a href="#">
+                    <img height="100" src="https://graph.facebook.com/{{ user.username }}/picture?type=large" class="thumbnail" />
+                </a>
+            </div>
+            <div class="details">
+                <em>{{ user.fullname }}</em><br/>
+                Native Language <strong>{{ user.nativelanguage.name }}</strong><br/>
+                Learning: <strong>{{ user.learninglanguage.name }}</strong><br/>
+                Interests: <strong>{% for interest in user.interests %}{{ interest.name }}, {% endfor %}</strong>
+            </div>
+        </div>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

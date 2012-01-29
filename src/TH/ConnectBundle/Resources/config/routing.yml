@@ -1,0 +1,45 @@
+THConnectBundle_homepage:
+    pattern:  /
+    defaults: { _controller: THConnectBundle:Default:index }
+
+
+THConnectBundle_random:
+    pattern:  /my/random
+    defaults: { _controller: THConnectBundle:User:random }
+
+THConnectBundle_notlike:
+    pattern: /my/notlike/{slug}
+    defaults: { _controller: THConnectBundle:User:notlike }
+
+THConnectBundle_like:
+    pattern: /my/like/{slug}
+    defaults: { _controller: THConnectBundle:User:like }
+
+THConnectBundle_item:
+    pattern:  /my/item/{slug}
+    defaults: { _controller: THConnectBundle:User:item }
+
+THConnectBundle_profile:
+    pattern:  /my/profile
+    defaults: { _controller: THConnectBundle:User:profile }
+
+THConnectBundle_profileUpdate:
+    pattern:  /my/profileUpdate
+    defaults: { _controller: THConnectBundle:User:profileUpdate }
+
+THConnectBundle_loadstream:
+    pattern:  /my/loadstream
+    defaults: { _controller: THConnectBundle:User:loadstream }
+
+THConnectBundle_streamComments:
+    pattern:  /my/streamComments/{slug}
+    defaults: { _controller: THConnectBundle:User:streamComments }
+
+THConnectBundle_streamCommentsNew:
+    pattern:  /my/streamCommentsNew
+    defaults: { _controller: THConnectBundle:User:streamCommentsNew }
+
+
+THConnectBundle_friends:
+    pattern:  /friends
+    defaults: { _controller: THConnectBundle:Friends:index }
