@@ -1,0 +1,3 @@
+[submodule "vendor/bundles/Mopa/bootstrap"]
+	path = vendor/bundles/Mopa/bootstrap
+	url = https://github.com/twitter/bootstrap.git
