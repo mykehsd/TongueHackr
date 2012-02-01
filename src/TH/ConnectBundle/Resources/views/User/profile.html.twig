@@ -11,7 +11,11 @@
                 <strong>{{ item.type }}</strong> 
 
             {% endif %}
-        {{ item.message }} <br/>
+        {% if item.name %}
+            {{ item.name }} <br/>
+        {% else %}
+            {{ item.message }} <br/>
+        {% endif %}
         </a>
     {% endfor %}
 
