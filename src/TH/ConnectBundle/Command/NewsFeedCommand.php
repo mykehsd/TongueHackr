@@ -22,7 +22,7 @@ class NewsFeedCommand extends ContainerAwareCommand
     private $feeds = array(
         'german' => 'http://news.google.com/news?cf=all&ned=de&hl=de&output=rss',
         'english' => 'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss',
-        'spanish' => 'http://news.google.com/news?cf=all&ned=es_mx&hl=es&output=rss',
+        'espanol' => 'http://news.google.com/news?cf=all&ned=es_mx&hl=es&output=rss',
     );
 
     protected function configure()
