@@ -76,7 +76,7 @@ class NewsFeedCommand extends ContainerAwareCommand
                     $item->setUser ($user);
                     $item->setLink ( (string) $article->link);
                     $item->setName( (string) $article->title);
-                    $item->setMessage( (string) $article->description);
+                    $item->setMessage( strip_tags((string) $article->description));
                     $item->setActive('1');
                     $item->setType('link');
                     $item->setCreatedTime ( new \DateTime );
